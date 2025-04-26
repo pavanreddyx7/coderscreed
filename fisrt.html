@@ -1,0 +1,238 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Coders Creed | Cyber Security</title>
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        /* General Styles */
+        body {
+            background-color: white;
+            color: black;
+            font-family: 'Orbitron', sans-serif;
+            margin: 0;
+            padding: 0;
+            scroll-behavior: smooth;
+        }
+        /* Navigation */
+        /* Navigation */
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px 40px; /* Reduced padding to move elements slightly left */
+            background-color: white;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 100;
+        }
+
+        .nav-left {
+            display: flex;
+            align-items: center;
+        }
+
+        .logo {
+            height: 50px;
+            margin-right: 10px;
+        }
+
+        .logo-text {
+            font-size: 24px;
+            font-weight: bold;
+            color: black;
+        }
+
+        .nav-links {
+            list-style: none;
+            display: flex;
+            gap: 10px;
+        }
+
+        .nav-links li {
+            position: relative;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: black;
+            font-size: 18px;
+            transition: 0.3s;
+            padding: 10px;
+        }
+
+        .nav-links a:hover {
+            color: cyan;
+            text-shadow: 0 0 10px cyan;
+        }
+
+        /* Dropdown Menu */
+        .dropdown-menu {
+            display: none;
+            position: absolute;
+            background-color: white;
+            padding: 10px;
+            border: 1px solid cyan;
+            list-style: none;
+            width: 180px;
+        }
+
+        .dropdown:hover .dropdown-menu {
+            display: block;
+        }
+
+        .dropdown-menu li a {
+            display: block;
+            padding: 10px;
+            color: cyan;
+        }
+
+        .dropdown-menu li a:hover {
+            background-color: rgba(0, 255, 255, 0.2);
+        }
+
+        /* Logo */
+        .logo {
+            height: 50px;
+            margin-right: 10px;
+        }
+
+        .logo-text {
+            font-size: 24px;
+            font-weight: bold;
+            color: black;
+            margin-left: 50px;
+        }
+
+        /* Home Section */
+        #home {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            text-align: center;
+            padding-top: 80px;
+            background: url('logo.jpg') no-repeat center center/cover;
+        }
+        
+        /* Glitch Effect */
+        .glitch {
+            font-size: 40px;
+            position: relative;
+            text-transform: uppercase;
+            color: cyan;
+            animation: flicker 1.5s infinite alternate;
+        }
+
+        @keyframes flicker {
+            0%, 100% {opacity: 1;}
+            50% {opacity: 0.8;}
+        }
+
+        /* CTA Button */
+        .cta-button {
+            background: cyan;
+            color: black;
+            padding: 12px 25px;
+            text-decoration: none;
+            font-weight: bold;
+            border-radius: 5px;
+            transition: 0.3s;
+            margin-top: 20px;
+            display: inline-block;
+        }
+
+        .cta-button:hover {
+            background: black;
+            color: white;
+            box-shadow: 0 0 20px cyan;
+        }
+
+        /* Image Slider */
+        .slider {
+            width: 100%;
+            overflow: hidden;
+            position: relative;
+            margin-top: 30px;
+        }
+
+        .slide-track {
+            display: flex;
+            width: 200%;
+            animation: scroll 10s linear infinite;
+        }
+
+        .slide-track img {
+            width: 200px;
+            margin: 0 15px;
+        }
+
+        @keyframes scroll {
+            0% { transform: translateX(0); }
+            100% { transform: translateX(-50%); }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <nav>
+            <img src="logo.jpg" alt="Coders Creed Logo" class="logo">
+            <span class="logo-text">Coders Creed</span>
+            <ul class="nav-links">
+                <li><a href="#home">Home</a></li>
+                <li><a href="#about">About</a></li>
+                <li><a href="#club">Club</a></li>
+                <li class="dropdown">
+                    <a href="#">Resources ⬇</a>
+                    <ul class="dropdown-menu">
+                        <li><a href="#notes">Notes</a></li>
+                        <li><a href="#questions">Questions</a></li>
+                        <li><a href="#course-links">Course Links</a></li>
+                        <li><a href="#useful-links">Useful Links</a></li>
+                        <li><a href="#timetable">Timetable</a></li>
+                    </ul>
+                </li>
+                <li><a href="#faculty">Faculty</a></li>
+                <li><a href="#events">Events</a></li>  
+            </ul>
+        </nav>
+    </header>
+
+    <section id="home">
+        <div class="home-content">
+            <h1 class="glitch">Empowering Cyber Minds – <span>Coders Creed</span></h1>
+            <p>Unlocking the Future of Cyber Security Engineering!</p>
+            <a href="#club" class="cta-button">Join Coders Creed</a>
+        </div>
+        <div class="slider">
+            <div class="slide-track">
+                <img src="hacker1.png" alt="Hacker" />
+                <img src="cybersecurity.png" alt="Cyber Security" />
+                <img src="developers.png" alt="Developers Team" />
+                <img src="firewall.png" alt="Firewall Protection" />
+                <img src="hacker1.png" alt="Hacker" />
+            </div>
+        </div>
+    </section>
+
+    <script>
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                e.preventDefault();
+                const targetId = this.getAttribute('href').substring(1);
+                const targetElement = document.getElementById(targetId);
+                if (targetElement) {
+                    window.scrollTo({
+                        top: targetElement.offsetTop - 80,
+                        behavior: 'smooth'
+                    });
+                }
+            });
+        });
+    </script>
+</body>
+</html>

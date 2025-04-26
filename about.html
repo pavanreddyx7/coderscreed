@@ -1,0 +1,325 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>About Section - Coders Creed</title>
+  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&family=Roboto+Mono:wght@300;500&display=swap" rel="stylesheet" />
+  <style>
+    :root {
+      --neon-blue: #00f3ff;
+      --dark-bg: #0a0a0a;
+      --text-color: #ffffff;
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+   
+
+    /* Header Styles */
+    .site-header {
+      background-color: transparent;
+      color: rgba(2, 25, 59, 0.995);
+      padding: 1rem 2rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      backdrop-filter: blur(20px);
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+      box-shadow: 0 2px 10px rgba(0, 243, 255, 0.2);
+    }
+
+    .header-left {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+    }
+
+    .header-left img {
+      height: 40px;
+    }
+
+    .header-title {
+     font-family: Arial, sans-serif;
+      font-weight: bold;
+      font-size: 1.3rem;
+      color: rgb(0, 42, 96);
+    }
+
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 1.5rem;
+    }
+
+    .nav-links a {
+      color: rgba(2, 25, 59, 0.995);
+      text-decoration: none;
+      font-weight: 500;
+      transition: color 0.3s ease;
+    }
+
+    .nav-links a:hover {
+      color: #b20000;
+    }
+
+    .back-arrow {
+      cursor: pointer;
+      font-size: 1.5rem;
+      padding: 0.5rem 1rem;
+      border: 1px solid var(--neon-blue);
+      border-radius: 5px;
+      transition: all 0.3s ease;
+    }
+
+    .back-arrow:hover {
+      background-color: var(--neon-blue);
+      color: #000;
+    }
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background-color: #f5f7fa;
+      background-image: url('dark.jpg');
+      background-size: cover;
+      background-position: center;
+      background-repeat: no-repeat;
+
+      margin: 0;
+      padding: 0;
+    }
+
+    .about-section {
+      max-width: 1000px;
+      margin: 50px auto;
+      background-color: #ffffff;
+      padding: 40px;
+      border-radius: 15px;
+      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+    }
+
+    .about-section h2 {
+      color: #0a0183;
+      font-size: 2em;
+      margin-bottom: 20px;
+      display: flex;
+      align-items: center;
+    }
+
+    .about-section h2::before {
+      content: "🔐";
+      margin-right: 10px;
+    }
+
+    .about-section p {
+      color: #333333;
+      line-height: 1.8;
+      font-size: 1.1em;
+    }
+    .club-section {
+      max-width: 1000px;
+      margin: 60px auto;
+      background-color: #ffffff;
+      padding: 40px;
+      border-radius: 15px;
+      box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
+      opacity: 0;
+      transform: translateY(30px);
+      animation: fadeInUp 1s ease-out forwards;
+    }
+
+    @keyframes fadeInUp {
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    .club-section h2 {
+      color:  #110769;
+      font-size: 2.2em;
+      margin-bottom: 20px;
+      display: flex;
+      align-items: center;
+    }
+
+    .club-section h2::before {
+      content: "💻";
+      margin-right: 10px;
+    }
+
+    .club-section p {
+      color: #333;
+      line-height: 1.8;
+      font-size: 1.1em;
+      margin-bottom: 20px;
+    }
+
+    .club-image {
+      width: 100%;
+      max-height: 300px;
+      object-fit: cover;
+      border-radius: 10px;
+      margin-bottom: 25px;
+    }
+
+    .button-wrapper {
+      display: flex;
+      justify-content: center;
+      margin-top: 30px;
+    }
+
+    .club-button {
+      padding: 12px 25px;
+      background-color: #1a73e8;
+      color: #fff;
+      font-size: 1em;
+      border: none;
+      border-radius: 8px;
+      text-decoration: none;
+      transition: background-color 0.3s ease, transform 0.2s ease;
+    }
+
+    .club-button:hover {
+      background-color: #0f5fc2;
+      transform: scale(1.05);
+    }
+
+    @media (max-width: 600px) {
+      .club-section {
+        padding: 25px;
+      }
+
+      .club-section h2 {
+        font-size: 1.6em;
+      }
+
+      .club-button {
+        width: 100%;
+        text-align: center;
+      }
+    }
+    @media (max-width: 600px) {
+      .about-section {
+        padding: 20px;
+      }
+
+      .about-section h2 {
+        font-size: 1.5em;
+      }
+
+      .about-section p {
+        font-size: 1em;
+      }
+    }
+    .button-container {
+      display: flex;
+      justify-content: center;
+      margin-top: 30px;
+      margin-bottom: 30px;
+    }
+    .explore-button {
+      padding: 12px 25px;
+      background-color: #011228;
+      color: #fff;
+      font-size: 1em;
+      border: none;
+      border-radius: 8px;
+      text-decoration: none;
+      transition: background-color 0.3s ease, transform 0.2s ease;
+    }
+    .explore-button:hover {
+      background-color: #0f5fc2;
+      transform: scale(1.05);
+    }
+    /* Footer */
+    footer {
+      background-color: #0d101c;
+      color: whitesmoke;
+      text-align: center;
+      padding: 1rem;
+      font-size: 0.9rem;
+    }
+
+  </style>
+</head>
+<body>
+
+  <!-- Header Section -->
+  <header class="site-header">
+    <div class="header-left">
+      <div class="back-arrow" onclick="history.back()">&#8592;</div>
+      <img src="logo2.jpg" alt="Logo" style="height: 40px; border-radius: 50%;" />
+      <span class="header-title">CODERS' CREED</span>
+    </div>
+    <nav class="nav-links">
+      <a href="index.html">Home</a>
+      <a href="#contact">Contact</a>
+    </nav>
+  </header>
+  <section class="about-section">
+    <h2>DEPARTMENT OF CYBER SECURITY ENGINEERING </h2>
+    <p>
+      The <strong>Cybersecurity Engineering branch at SSIT</strong> was established in <strong>2023</strong>, marking a significant step towards empowering the next generation of digital defenders. Recognizing the growing importance of cybersecurity in today's technology-driven world, SSIT introduced this specialized branch to equip students with the knowledge and skills needed to tackle modern cyber threats.
+    </p>
+    <p>
+      Cybersecurity Engineering focuses on the protection of computer systems, networks, and data from malicious attacks. It blends core concepts of computer science, ethical hacking, cryptography, and network security to create secure digital environments.
+    </p>
+    <p>
+      Students in this branch are trained to think critically, detect vulnerabilities, design secure systems, and respond effectively to real-world cyber incidents. From securing enterprise networks to protecting personal data, cybersecurity engineers are vital to maintaining trust and safety in the digital age.
+    </p>
+    <p>
+      Since its inception, the branch has attracted passionate and tech-savvy students eager to make an impact in one of the most dynamic and essential fields of engineering.
+    </p>
+   </section>
+   <section class="club-section">
+    <!-- Optional image -->
+    <img src="logobg2.png" alt="Coders Creed Club" class="club-image" />
+
+    <h2>CODERS' CREED Club</h2>
+    <p>
+      <strong>Coders Creed</strong> is a dynamic student-led club at SSIT, founded by passionate individuals from the Cybersecurity Engineering branch. The club was created with the goal of fostering interest in ethical hacking, secure coding, and cybersecurity innovation among students.
+    </p>
+    <p>
+      Coders Creed provides a platform for students to explore real-world cybersecurity practices through hands-on workshops, Capture The Flag (CTF) competitions, hackathons, tech talks, and collaborative projects. It encourages a culture of continuous learning, problem-solving, and peer-to-peer mentoring.
+    </p>
+    <p>
+      Our mission is to build a community where students can experiment, build, and grow together while staying ahead in the fast-paced world of cybersecurity. Whether you're a beginner or an advanced coder, Coders Creed welcomes all tech enthusiasts who are curious, creative, and committed to making the digital world safer.
+    </p>
+
+    <!-- Centered button -->
+    <div class="button-wrapper">
+      <a href="#" class="club-button">Join Now</a>
+    </div>
+  </section>
+   
+  <div class="button-container">
+    <a href="#" class="explore-button">Explore Coders Creed</a>
+  </div>
+  <!-- Footer -->
+  <footer>
+    &copy; 2025 Coders Creed. All rights reserved.
+  </footer>
+
+  <script>
+    // Scroll animation handler
+    const fadeElements = document.querySelectorAll('.fade-in');
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('active');
+        }
+      });
+    }, { threshold: 0.1 });
+
+    fadeElements.forEach(element => {
+      observer.observe(element);
+    });
+  </script>
+</body>
+</html>
