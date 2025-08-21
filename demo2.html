@@ -1,0 +1,401 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Coders Creed - Cyber Security Engineering</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+  <style>
+    :root {
+      --neon-blue: #007BFF;
+      --main-bg: #ffffff;
+      --text-color: #ffffff;
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      background-color: var(--main-bg);
+      font-family: Arial, sans-serif;
+      color: var(--text-color);
+      scroll-behavior: smooth;
+      background-image: url('dark.jpg');
+      background-size: cover;
+      background-position: center;
+      background-repeat: no-repeat;
+    }
+
+    .header {
+      position: fixed;
+      top: 0;
+      width: 100%;
+      padding: 1rem 2rem;
+      backdrop-filter: blur(10px);
+      background-color: transparent;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      z-index: 1000;
+      box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+    }
+
+    .logo {
+      border-radius: 50%;
+      border: 2px solid rgb(0, 0, 67);
+      padding: 5px;
+      width: 60px;
+      height: 60px;
+    }
+
+    .logo-text {
+      font-weight: bold;
+      font-size: 1.2rem;
+      color: rgb(0, 42, 96);
+      white-space: nowrap;
+    }
+
+    .logo-container {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+    }
+
+    .nav-menu {
+      display: flex;
+      gap: 2rem;
+    }
+
+    .nav-link {
+      color: var(--text-color);
+      text-decoration: none;
+      position: relative;
+      transition: 0.3s;
+      font-weight: 500;
+      font-size: 1.1rem;
+    }
+
+    .nav-link:hover {
+      color: var(--neon-blue);
+    }
+
+    .dropdown-menu {
+      display: none;
+      position: absolute;
+      background-color: white;
+      padding: 10px;
+      border: 1px solid black;
+      list-style: none;
+      width: 180px;
+    }
+
+    .dropdown:hover .dropdown-menu {
+      display: block;
+    }
+
+    .dropdown-menu li a {
+      display: block;
+      padding: 10px;
+      color: black;
+    }
+
+    .dropdown-menu li a:hover {
+      background-color: rgba(0, 255, 255, 0.2);
+    }
+
+    .home-section {
+      padding: 8rem 2rem 2rem;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+
+    .mission-text {
+      font-size: 2.5rem;
+      text-align: center;
+      line-height: 1.3;
+      margin-bottom: 2rem;
+      margin-top: 2rem;
+    }
+    .mission-word {
+      font-size: 2.5rem;
+      text-align: center;
+      line-height: 1.3;
+      margin-bottom: 2rem;
+      margin-top: 2rem;
+    }
+
+    .mission-text span {
+      color: rgb(0, 42, 96);
+      display: block;
+      font-weight: bold;
+    }
+    .mission-word span {
+      color: rgba(2, 25, 59, 0.995);
+      display: block;
+      font-weight: bold;
+    }
+
+    /* Image Slider */
+    .slider-container {
+      width: 90%;
+      max-width: 900px;
+      position: relative;
+      overflow: hidden;
+      border-radius: 12px;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.4);
+    }
+
+    .slides {
+      display: flex;
+      transition: transform 0.5s ease-in-out;
+    }
+
+    .slide {
+      min-width: 100%;
+      position: relative;
+    }
+
+    .slide img {
+      width: 100%;
+      height: 500px;
+      object-fit: cover;
+      display: block;
+    }
+
+    .description {
+      position: absolute;
+      bottom: 20px;
+      left: 20px;
+      color: white;
+      background: rgba(0, 0, 0, 0.6);
+      padding: 10px 15px;
+      border-radius: 6px;
+      font-size: 18px;
+    }
+
+    .buttons {
+      position: absolute;
+      top: 50%;
+      width: 100%;
+      display: flex;
+      justify-content: space-between;
+      transform: translateY(-50%);
+      padding: 0 20px;
+    }
+
+    .buttons button {
+      background-color: rgba(0, 0, 0, 0.6);
+      border: none;
+      color: white;
+      padding: 10px 15px;
+      font-size: 18px;
+      cursor: pointer;
+      border-radius: 5px;
+    }
+
+    .buttons button:hover {
+      background-color: rgba(0, 0, 0, 0.8);
+    }
+
+    .footer {
+      background-color: #0d101c;
+      color: #fff;
+      padding: 40px 20px;
+    }
+
+    .footer-container {
+      display: flex;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 40px;
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+
+    .footer-column {
+      flex: 1;
+      min-width: 250px;
+    }
+
+    .footer-column h3 {
+      font-size: 20px;
+      margin-bottom: 20px;
+      color: #ffffff;
+    }
+
+    .footer-column ul {
+      list-style: none;
+      padding: 0;
+    }
+
+    .footer-column ul li {
+      margin: 8px 0;
+    }
+
+    .footer-column ul li a,
+    .footer-column p,
+    .footer-column a {
+      color: #b58ebf;
+      text-decoration: none;
+    }
+
+    .footer-column a:hover {
+      text-decoration: underline;
+    }
+
+    .social-icons {
+      margin-top: 15px;
+    }
+
+    .social-icons a {
+      display: inline-block;
+      background-color: #fff;
+      color: #000;
+      width: 40px;
+      height: 40px;
+      line-height: 40px;
+      margin-right: 10px;
+      text-align: center;
+      border-radius: 50%;
+      font-size: 18px;
+      transition: transform 0.3s ease;
+    }
+
+    .social-icons a:hover {
+      transform: scale(1.1);
+    }
+
+    .footer-bottom {
+      margin-top: 20px;
+      font-size: 14px;
+      opacity: 0.8;
+     text-align: center; 
+    }
+  </style>
+</head>
+<body>
+  <!-- Header -->
+  <header class="header">
+    <div class="logo-container">
+      <img src="logo2.jpg" alt="Coders Creed Logo" class="logo" />
+      <span class="logo-text">CODERS' CREED</span>
+    </div>
+    <nav class="nav-menu">
+      <a href="index.html" class="nav-link">Home</a>
+      <a href="about.html" class="nav-link">About</a>
+      <a href="club.html" class="nav-link">Club</a>
+      <li class="dropdown">
+        <a href="#">Resources ⬇</a>
+        <ul class="dropdown-menu">
+          <li><a href="notes.html">Notes</a></li>
+          <li><a href="#questions">Questions</a></li>
+          <li><a href="#course-links">Course Links</a></li>
+          <li><a href="#useful-links">Useful Links</a></li>
+          <li><a href="#timetable">Timetable</a></li>
+        </ul>
+      </li>
+      <a href="faculty.html" class="nav-link">Faculty</a>
+      <a href="events.html" class="nav-link">Events</a>
+      <a href="contact.html" class="nav-link">Contact</a>
+    </nav>
+  </header>
+
+  <!-- Home Section -->
+  <section id="home" class="home-section">
+    <h1 class="mission-text">
+      <span>EMPOWERING CYBER MINDS</span>
+      Unlocking the Future of Cyber Security Engineering!
+    </h1>
+
+    <!-- Image Slider -->
+    <div class="slider-container">
+      <div class="slides" id="slides">
+        <div class="slide">
+          <img src="logobg.png" alt="Image 1">
+          <div class="description">Beautiful Mountain View</div>
+        </div>
+        <div class="slide">
+          <img src="logobg.png" alt="Image 2">
+          <div class="description">Calm Blue Lake</div>
+        </div>
+        <div class="slide">
+          <img src="logobg.png" alt="Image 3">
+          <div class="description">Sunset in the Desert</div>
+        </div>
+      </div>
+
+      <div class="buttons">
+        <button onclick="prevSlide()">❮</button>
+        <button onclick="nextSlide()">❯</button>
+      </div>
+    </div>
+    <h1 class="mission-word">
+      <span>CODERS' CREED</span>
+      Department Computer Science And Cyber Security 
+    </h1>
+  </section>
+
+  <!-- Footer -->
+    <footer class="footer">
+      <div class="footer-container">
+        <div class="footer-column">
+          <h3>Useful Links</h3>
+          <ul>
+            <li><a href="#">Home</a></li>
+            <li><a href="#">About us</a></li>
+            <li><a href="#">SSIT LINK</a></li>
+            <li><a href="#">DHL LINK</a></li>
+            <li><a href="#">Contact us</a></li>
+          </ul>
+        </div>
+  
+        <div class="footer-column">
+          <h3>About us</h3>
+        <p>I’m a passionate front-end developer dedicated to crafting responsive, accessible, and visually appealing web experiences. I believe great design and clean code go hand in hand to create websites that not only look good but also perform smoothly across all devices.</p>
+        </div>
+  
+        <div class="footer-column">
+          <h3>Connect with us</h3>
+          <p><i class="fas fa-comments"></i> <a href="#">Contact us</a></p>
+          <p><i class="fas fa-envelope"></i> rhethhtrtr@gmail.com</p>
+          <p><i class="fas fa-phone"></i> +91 xxxxxxx</p>
+          <div class="social-icons">
+            <a href="#"><i class="fas fa-home"></i></a>
+            <a href="#"><i class="fab fa-instagram"></i></a>
+            <a href="#" target="_blank"><i class="fa-brands fa-facebook"></i></a>
+            <a href="#" target="_blank"><i class="fa-brands fa-twitter"></i></a>
+          </div>
+        </div>
+      </div>
+    <p class="footer-bottom">&copy; 2025 Coders Creed | All Rights Reserved.</p>
+  </footer>
+
+  <!-- Slider Script -->
+  <script>
+    const slides = document.getElementById('slides');
+    const totalSlides = slides.children.length;
+    let index = 0;
+
+    function showSlide(i) {
+      index = (i + totalSlides) % totalSlides;
+      slides.style.transform = `translateX(-${index * 100}%)`;
+    }
+
+    function nextSlide() {
+      showSlide(index + 1);
+    }
+
+    function prevSlide() {
+      showSlide(index - 1);
+    }
+
+    setInterval(() => {
+      nextSlide();
+    }, 4000);
+  </script>
+</body>
+</html>

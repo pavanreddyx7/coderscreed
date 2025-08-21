@@ -1,0 +1,588 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>About Section - Coders Creed</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&family=Roboto+Mono:wght@300;500&display=swap" rel="stylesheet" />
+  <style>
+    :root {
+      --neon-blue: #00f3ff;
+      --dark-bg: #0a0a0a;
+      --text-color: #ffffff;
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+   body {
+      background-color: var(--main-bg);
+      font-family: Arial, sans-serif;
+      color: var(--text-color);
+      scroll-behavior: smooth;
+      background-image: url('dark.jpg');
+      background-size: cover;
+      background-position: center;
+      background-repeat: no-repeat;
+      background-attachment: fixed;
+      margin: 150px auto 0 auto; /* Increased top margin for more space from header */
+    }
+
+    /* Header */
+    header { 
+        background: transparent;
+        box-shadow: 0 2px 4px rgba(0,0,0,.1);
+        position: fixed;
+        top: 0; left: 0; right: 0;
+        z-index: 1000; 
+        }   
+   
+    .navbar {
+      width: 100%;
+      background: transparent;
+      backdrop-filter: blur(10px);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 0.8rem 2rem;
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+    }
+    .logo { display: flex;
+         align-items: center;
+          gap: 10px; 
+          color: #003366; 
+          font-weight: 700;
+         font-size: 1.5rem;
+        text-decoration: none;
+         transition: color .2s; 
+       
+
+
+        }
+    .logo img { 
+        height: 40px; 
+        width: 40px;
+        border-radius: 50%;
+        object-fit: cover;
+        box-shadow: 0 2px 4px rgba(0,0,0,.1);
+        
+     }
+
+    /* Links */
+    .nav-links { list-style: none; display: flex; gap: 1.5rem; align-items: center; }
+    .nav-links > li { position: relative; }
+    .nav-links a { text-decoration: none; color: #333; transition: color .2s; }
+    .nav-links a:hover { color: #007bff; }
+
+    /* Dropdown base */
+    .dropdown > a { display: inline-flex; align-items: center; gap: 6px; }
+    .caret { font-size: .8rem; transition: transform .25s ease; }
+
+    /* Desktop hover dropdown */
+    .dropdown-menu {
+      position: absolute;
+      top: calc(100% + 8px); 
+      left: 0;
+      background: #ffffff72; 
+      border-radius: 8px;
+      box-shadow: 0 6px 24px rgba(0,0,0,.12);
+      min-width: 180px;
+      padding: 8px 0; 
+      display: none;
+      pointer-events: auto;
+    }
+    .dropdown-menu a { 
+        display: block; 
+        padding: 10px 14px;
+         color: #333; 
+        }
+    .dropdown-menu a:hover { 
+        background: #f1f1f1; 
+    }
+  /* Show dropdown only when .open is present */
+   @media (min-width: 769px) {
+  .dropdown.open > .dropdown-menu {
+    display: block;
+   }
+   .dropdown.open > a .caret {
+     transform: rotate(180deg);
+    }
+    }
+    /* Hamburger */
+    .hamburger { display: none; flex-direction: column; gap: 5px; cursor: pointer; }
+    .hamburger span { width: 26px; height: 3px; background: #333; transition: transform .3s, opacity .3s; }
+    .hamburger.open span:nth-child(1){ transform: translateY(8px) rotate(45deg); }
+    .hamburger.open span:nth-child(2){ opacity: 0; }
+    .hamburger.open span:nth-child(3){ transform: translateY(-8px) rotate(-45deg); }
+
+    /* Mobile menu container (slide down) */
+    @media (max-width: 768px) {
+      .nav-links {
+        position: absolute; 
+        top: 70px; 
+        left: 0;
+         width: 100%;
+        background: #f8f8f8;
+         flex-direction: column; 
+         align-items: center;
+        overflow: hidden;
+         max-height: 0;
+          transition: max-height .35s ease-in-out;
+        border-top: 1px solid #eee;
+      }
+      .nav-links.active { max-height: 420px; } /* adjust if you add more links */
+      .nav-links > li { 
+        width: 100%; 
+        text-align: center;
+        font-size: large;
+        padding: 6px 0; 
+      }
+  
+
+      /* Mobile dropdown uses max-height animation (click to open/close) */
+      .dropdown-menu {
+        position: static; box-shadow: none; border-radius: 0; padding: 0;
+        width: 100%;
+        display: block;       /* keep block so we can animate height */
+        max-height: 0;        /* hidden by default */
+        opacity: 0;
+        overflow: hidden;
+        transition: max-height .3s ease, opacity .25s ease;
+
+      }
+      .dropdown.open .dropdown-menu {
+        max-height: 500px;    /* big enough for all items */
+        opacity: 1;
+      }
+      .dropdown.open > a .caret { transform: rotate(180deg); }
+
+      .hamburger { display: flex; }
+    }
+
+    /* Page spacer so content isn't hidden under fixed header */
+    main { padding-top: 80px; }
+
+    
+
+    .about-section {
+      margin: 150px auto 0 auto;
+      max-width: 1000px;
+      padding: 40px;
+      background-color: #ffffff;
+      border-radius: 15px;
+      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+    }
+
+    .about-section h2 {
+      color: #0a0183;
+      font-size: 2em;
+      margin-bottom: 20px;
+      display: flex;
+      align-items: center;
+    }
+
+    .about-section h2::before {
+      content: "🔐";
+      margin-right: 10px;
+    }
+
+    .about-section p {
+      color: #333333;
+      line-height: 1.8;
+      font-size: 1.1em;
+    }
+    .club-section {
+      max-width: 1000px;
+      margin: 60px auto;
+      background-color: #ffffff;
+      padding: 40px;
+      border-radius: 15px;
+      box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
+      opacity: 0;
+      transform: translateY(30px);
+      animation: fadeInUp 1s ease-out forwards;
+    }
+
+    @keyframes fadeInUp {
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    .club-section h2 {
+      color:  #110769;
+      font-size: 2.2em;
+      margin-bottom: 20px;
+      display: flex;
+      align-items: center;
+    }
+
+    .club-section h2::before {
+      content: "💻";
+      margin-right: 10px;
+    }
+
+    .club-section p {
+      color: #333;
+      line-height: 1.8;
+      font-size: 1.1em;
+      margin-bottom: 20px;
+    }
+
+    .club-image {
+      width: 100%;
+      max-height: 300px;
+      object-fit: cover;
+      border-radius: 10px;
+      margin-bottom: 25px;
+    }
+
+    .button-wrapper {
+      display: flex;
+      justify-content: center;
+      margin-top: 30px;
+    }
+
+    .club-button {
+      padding: 12px 25px;
+      background-color: #1a73e8;
+      color: #fff;
+      font-size: 1em;
+      border: none;
+      border-radius: 8px;
+      text-decoration: none;
+      transition: background-color 0.3s ease, transform 0.2s ease;
+    }
+
+    .club-button:hover {
+      background-color: #0f5fc2;
+      transform: scale(1.05);
+    }
+
+    @media (max-width: 600px) {
+      .club-section {
+        padding: 25px;
+      }
+
+      .club-section h2 {
+        font-size: 1.6em;
+      }
+
+      .club-button {
+        width: 100%;
+        text-align: center;
+      }
+    }
+    @media (max-width: 600px) {
+      .about-section {
+        padding: 20px;
+      }
+
+      .about-section h2 {
+        font-size: 1.5em;
+      }
+
+      .about-section p {
+        font-size: 1em;
+      }
+    }
+    .button-container {
+      display: flex;
+      justify-content: center;
+      margin-top: 30px;
+      margin-bottom: 30px;
+    }
+    .explore-button {
+      padding: 12px 25px;
+      background-color: #011228;
+      color: #fff;
+      font-size: 1em;
+      border: none;
+      border-radius: 8px;
+      text-decoration: none;
+      transition: background-color 0.3s ease, transform 0.2s ease;
+    }
+    .explore-button:hover {
+      background-color: #0f5fc2;
+      transform: scale(1.05);
+    }
+    /* Footer */
+   .footer {
+      background-color: #0d101c;
+      color: #fff;
+      padding: 40px 20px;
+    }
+
+    .footer-container {
+      display: flex;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 40px;
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+
+    .footer-column {
+      flex: 1;
+      min-width: 250px;
+    }
+
+    .footer-column h3 {
+      font-size: 20px;
+      margin-bottom: 20px;
+      color: #ffffff;
+    }
+
+    .footer-column ul {
+      list-style: none;
+      padding: 0;
+    }
+
+    .footer-column ul li {
+      margin: 8px 0;
+    }
+
+    .footer-column ul li a,
+    .footer-column p,
+    .footer-column a {
+      color: #b58ebf;
+      text-decoration: none;
+    }
+
+    .footer-column a:hover {
+      text-decoration: underline;
+    }
+
+    .social-icons {
+      margin-top: 15px;
+    }
+
+    .social-icons a {
+      display: inline-block;
+      background-color: #fff;
+      color: #000;
+      width: 40px;
+      height: 40px;
+      line-height: 40px;
+      margin-right: 10px;
+      text-align: center;
+      border-radius: 50%;
+      font-size: 18px;
+      transition: transform 0.3s ease;
+    }
+
+    .social-icons a:hover {
+      transform: scale(1.1);
+    }
+
+    .footer-bottom {
+      margin-top: 20px;
+      font-size: 14px;
+      opacity: 0.8;
+     text-align: center; 
+    }
+
+  </style>
+</head>
+<body>
+
+  <!-- Header Section -->
+    <header>
+    <nav class="navbar">
+      <div class="logo">
+        <img src="logo2.jpg" alt="Logo">
+        CODERS' CREED
+      </div>
+
+      <ul class="nav-links" id="navLinks">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="about.html">About</a></li>
+        <li><a href="club.html">Club</a></li>
+
+        <li class="dropdown">
+          <a href="#" id="resourcesLink">
+            Resources <span class="caret">▼</span>
+          </a>
+          <div class="dropdown-menu">
+            <a href="notes.html">Notes</a>
+            <a href="#questions">Questions</a>
+            <a href="#course-links">Course Links</a>
+            <a href="#useful-links">Useful Links</a>
+            <a href="#timetable">Timetable</a>
+          </div>
+        </li>
+
+        <li><a href="faculty.html">Faculty</a></li>
+        <li><a href="events.html">Events</a></li>
+        <li><a href="contact.html">Contact</a></li>
+      </ul>
+
+      <button class="hamburger" id="hamburger" aria-label="Menu" aria-expanded="false" aria-controls="navLinks">
+        <span></span><span></span><span></span>
+      </button>
+    </nav>
+  </header>
+  <section class="about-section">
+    <h2>DEPARTMENT OF CYBER SECURITY ENGINEERING </h2>
+    <p>
+      The <strong>Cybersecurity Engineering branch at SSIT</strong> was established in <strong>2023</strong>, marking a significant step towards empowering the next generation of digital defenders. Recognizing the growing importance of cybersecurity in today's technology-driven world, SSIT introduced this specialized branch to equip students with the knowledge and skills needed to tackle modern cyber threats.
+    </p>
+    <p>
+      Cybersecurity Engineering focuses on the protection of computer systems, networks, and data from malicious attacks. It blends core concepts of computer science, ethical hacking, cryptography, and network security to create secure digital environments.
+    </p>
+    <p>
+      Students in this branch are trained to think critically, detect vulnerabilities, design secure systems, and respond effectively to real-world cyber incidents. From securing enterprise networks to protecting personal data, cybersecurity engineers are vital to maintaining trust and safety in the digital age.
+    </p>
+    <p>
+      Since its inception, the branch has attracted passionate and tech-savvy students eager to make an impact in one of the most dynamic and essential fields of engineering.
+    </p>
+   </section>
+   <section class="club-section">
+    <!-- Optional image -->
+    <img src="logobg2.png" alt="Coders Creed Club" class="club-image" />
+
+    <h2>CODERS' CREED Club</h2>
+    <p>
+      <strong>Coders Creed</strong> is a dynamic student-led club at SSIT, founded by passionate individuals from the Cybersecurity Engineering branch. The club was created with the goal of fostering interest in ethical hacking, secure coding, and cybersecurity innovation among students.
+    </p>
+    <p>
+      Coders Creed provides a platform for students to explore real-world cybersecurity practices through hands-on workshops, Capture The Flag (CTF) competitions, hackathons, tech talks, and collaborative projects. It encourages a culture of continuous learning, problem-solving, and peer-to-peer mentoring.
+    </p>
+    <p>
+      Our mission is to build a community where students can experiment, build, and grow together while staying ahead in the fast-paced world of cybersecurity. Whether you're a beginner or an advanced coder, Coders Creed welcomes all tech enthusiasts who are curious, creative, and committed to making the digital world safer.
+    </p>
+
+    <!-- Centered button -->
+    <div class="button-wrapper">
+      <a href="#" class="club-button">Join Now</a>
+    </div>
+  </section>
+   
+  <div class="button-container">
+    <a href="#" class="explore-button">Explore Coders Creed</a>
+  </div>
+ 
+<!-- Footer -->
+    <footer class="footer">
+      <div class="footer-container">
+        <div class="footer-column">
+          <h3>Useful Links</h3>
+          <ul>
+            <li><a href="#">Home</a></li>
+            <li><a href="#">About us</a></li>
+            <li><a href="#">SSIT LINK</a></li>
+            <li><a href="#">DHL LINK</a></li>
+            <li><a href="#">Contact us</a></li>
+          </ul>
+        </div>
+  
+        <div class="footer-column">
+          <h3>About us</h3>
+        <p>I’m a passionate front-end developer dedicated to crafting responsive, accessible, and visually appealing web experiences. I believe great design and clean code go hand in hand to create websites that not only look good but also perform smoothly across all devices.</p>
+        </div>
+  
+        <div class="footer-column">
+          <h3>Connect with us</h3>
+          <p><i class="fas fa-comments"></i> <a href="#">Contact us</a></p>
+          <p><i class="fas fa-envelope"></i> rhethhtrtr@gmail.com</p>
+          <p><i class="fas fa-phone"></i> +91 xxxxxxx</p>
+          <div class="social-icons">
+            <a href="#"><i class="fas fa-home"></i></a>
+            <a href="#"><i class="fab fa-instagram"></i></a>
+            <a href="#" target="_blank"><i class="fa-brands fa-facebook"></i></a>
+            <a href="#" target="_blank"><i class="fa-brands fa-twitter"></i></a>
+          </div>
+        </div>
+      </div>
+    <p class="footer-bottom">&copy; 2025 Coders Creed | All Rights Reserved.</p>
+  </footer>
+  <script>
+    // Mobile menu and dropdown functionality
+    const hamburger = document.getElementById('hamburger');
+    const navLinks  = document.getElementById('navLinks');
+    const dropdownTrigger = document.getElementById('resourcesLink');
+    const dropdown = dropdownTrigger.closest('.dropdown');
+
+    // Toggle mobile menu
+    hamburger.addEventListener('click', () => {
+      const isOpen = navLinks.classList.toggle('active');
+      hamburger.classList.toggle('open', isOpen);
+      hamburger.setAttribute('aria-expanded', String(isOpen));
+      if (!isOpen) {
+        document.querySelectorAll('.dropdown.open').forEach(d => d.classList.remove('open'));
+      }
+    });
+
+    // Toggle dropdown on mobile (click to open/close)
+    dropdownTrigger.addEventListener('click', (e) => {
+      if (window.matchMedia('(max-width: 768px)').matches) {
+        e.preventDefault();
+        const parent = dropdownTrigger.closest('.dropdown');
+        const wasOpen = parent.classList.contains('open');
+        document.querySelectorAll('.nav-links .dropdown.open').forEach(d => {
+          if (d !== parent) d.classList.remove('open');
+        });
+        parent.classList.toggle('open', !wasOpen);
+      }
+    });
+
+    // DESKTOP: Toggle dropdown on click (not hover)
+    dropdownTrigger.addEventListener('click', (e) => {
+      if (window.matchMedia('(min-width: 769px)').matches) {
+        e.preventDefault();
+        const wasOpen = dropdown.classList.contains('open');
+        // Close all other dropdowns
+        document.querySelectorAll('.nav-links .dropdown.open').forEach(d => {
+          if (d !== dropdown) d.classList.remove('open');
+        });
+        dropdown.classList.toggle('open', !wasOpen);
+      }
+    });
+
+    // Close dropdown if you click anywhere else on desktop
+    document.addEventListener('click', (e) => {
+      if (window.matchMedia('(min-width: 769px)').matches) {
+        if (!dropdown.contains(e.target)) {
+          dropdown.classList.remove('open');
+        }
+      }
+      // Mobile: close dropdown if click outside
+      if (window.matchMedia('(max-width: 768px)').matches) {
+        const dropdown = document.querySelector('.dropdown');
+        const clickedInside = dropdown.contains(e.target) || e.target === dropdown;
+        if (!clickedInside) dropdown.classList.remove('open');
+      }
+    });
+
+    // Reset states on resize (avoid stuck states when switching between mobile/desktop)
+    window.addEventListener('resize', () => {
+      if (window.matchMedia('(min-width: 769px)').matches) {
+        navLinks.classList.remove('active');
+        hamburger.classList.remove('open');
+        hamburger.setAttribute('aria-expanded', 'false');
+        document.querySelectorAll('.dropdown.open').forEach(d => d.classList.remove('open'));
+      }
+    });
+    // Scroll animation handler
+    const fadeElements = document.querySelectorAll('.fade-in');
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('active');
+        }
+      });
+    }, { threshold: 0.1 });
+
+    fadeElements.forEach(element => {
+      observer.observe(element);
+    });
+  </script>
+</body>
+</html>

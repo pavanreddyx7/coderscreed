@@ -1,0 +1,554 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Coders Creed - Cyber Security Engineering</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+  <style>
+    :root {
+      --neon-blue: #00ffff;
+      --main-bg: #000000;
+      --text-color: #ffffff;
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+ body {
+      background-color: var(--main-bg);
+      font-family: Arial, sans-serif;
+      color: var(--text-color);
+      scroll-behavior: smooth;
+      background-image: url('dark.jpg');
+      background-size: cover;
+      background-position: center;
+      background-repeat: no-repeat;
+      background-attachment: fixed;
+    }
+
+ /* Header */
+    header { 
+        background: transparent;
+        box-shadow: 0 2px 4px rgba(0,0,0,.1);
+        position: fixed;
+        top: 0; left: 0; right: 0;
+        z-index: 1000; 
+        }   
+   
+    .navbar {
+      width: 100%;
+      background: transparent;
+      backdrop-filter: blur(10px);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 0.8rem 2rem;
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+    }
+    .logo { display: flex;
+         align-items: center;
+          gap: 10px; 
+          color: #003366; 
+          font-weight: 700;
+         font-size: 1.5rem;
+        text-decoration: none;
+         transition: color .2s; 
+       
+
+
+        }
+    .logo img { 
+        height: 40px; 
+        width: 40px;
+        border-radius: 50%;
+        object-fit: cover;
+        box-shadow: 0 2px 4px rgba(0,0,0,.1);
+        
+     }
+
+    /* Links */
+    .nav-links { list-style: none; display: flex; gap: 1.5rem; align-items: center; }
+    .nav-links > li { position: relative; }
+    .nav-links a { text-decoration: none; color: #333; transition: color .2s; }
+    .nav-links a:hover { color: #007bff; }
+
+    /* Dropdown base */
+    .dropdown > a { display: inline-flex; align-items: center; gap: 6px; }
+    .caret { font-size: .8rem; transition: transform .25s ease; }
+
+    /* Desktop hover dropdown */
+    .dropdown-menu {
+      position: absolute;
+      top: calc(100% + 8px); 
+      left: 0;
+      background: #ffffff5f; 
+      border-radius: 8px;
+      box-shadow: 0 6px 24px rgba(0,0,0,.12);
+      min-width: 180px;
+      padding: 8px 0; 
+      display: none;
+      pointer-events: auto;
+    }
+    .dropdown-menu a { 
+        display: block; 
+        padding: 10px 14px;
+         color: #333; 
+        }
+    .dropdown-menu a:hover { 
+        background: #f1f1f1; 
+    }
+  /* Show dropdown only when .open is present */
+   @media (min-width: 769px) {
+  .dropdown.open > .dropdown-menu {
+    display: block;
+   }
+   .dropdown.open > a .caret {
+     transform: rotate(180deg);
+    }
+    }
+    /* Hamburger */
+    .hamburger { display: none; flex-direction: column; gap: 5px; cursor: pointer; }
+    .hamburger span { width: 26px; height: 3px; background: #333; transition: transform .3s, opacity .3s; }
+    .hamburger.open span:nth-child(1){ transform: translateY(8px) rotate(45deg); }
+    .hamburger.open span:nth-child(2){ opacity: 0; }
+    .hamburger.open span:nth-child(3){ transform: translateY(-8px) rotate(-45deg); }
+
+    /* Mobile menu container (slide down) */
+    @media (max-width: 768px) {
+      .nav-links {
+        position: absolute; 
+        top: 70px; 
+        left: 0;
+         width: 100%;
+        background: #f8f8f8;
+         flex-direction: column; 
+         align-items: center;
+        overflow: hidden;
+         max-height: 0;
+          transition: max-height .35s ease-in-out;
+        border-top: 1px solid #eee;
+      }
+      .nav-links.active { max-height: 420px; } /* adjust if you add more links */
+      .nav-links > li { 
+        width: 100%; 
+        text-align: center;
+        font-size: large;
+        padding: 6px 0; 
+      }
+  
+
+      /* Mobile dropdown uses max-height animation (click to open/close) */
+      .dropdown-menu {
+        position: static; box-shadow: none; border-radius: 0; padding: 0;
+        width: 100%;
+        display: block;       /* keep block so we can animate height */
+        max-height: 0;        /* hidden by default */
+        opacity: 0;
+        overflow: hidden;
+        transition: max-height .3s ease, opacity .25s ease;
+
+      }
+      .dropdown.open .dropdown-menu {
+        max-height: 500px;    /* big enough for all items */
+        opacity: 1;
+      }
+      .dropdown.open > a .caret { transform: rotate(180deg); }
+
+      .hamburger { display: flex; }
+    }
+
+
+        .club-members {
+            background-color: rgba(139, 186, 184, 0.392) ;
+            backdrop-filter: var(--text-color);
+            color: rgb(255, 255, 255);
+            padding: 20px;
+            margin: 20px auto;
+            max-width: 1200px;
+            border-radius: 10px;
+        }
+        .club-intro {
+            padding: 8rem;
+            text-align: center;
+            padding-bottom:2rem ;
+        }
+        .club-intro h1 {
+            text-shadow: 0 0 10px rgb(173, 219, 219);
+            margin-bottom: 10px;
+            color: rgb(1, 1, 94);
+        }
+        .club-intro p {
+            font-size: 18px;
+            max-width: 800px;
+            margin: 0 auto;
+            line-height: 1.6;
+            color: rgb(255, 255, 255);
+        }
+        .club-members h1 {
+            color: rgb(35, 2, 108);
+            
+        }
+        .members-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+            padding: 20px;
+            justify-content: center;
+        }
+        .member-card {
+            background: transparent;
+            border-radius: 10px;
+            padding: 20px;
+            text-align: center;
+            box-shadow: 0 0 10px rgb(11, 0, 60);
+            transition: transform 0.3s;
+        }
+        .member-card:hover {
+            transform: scale(1.05);
+            box-shadow: 0 0 15px rgb(2, 4, 84);
+        }
+        .member-img {
+            width: 100px;
+            height: 100px;
+            border-radius: 50%;
+            margin-bottom: 10px;
+        }
+        .member-card h3 {
+            margin: 10px 0 5px;
+            color: rgb(238, 0, 0);
+        }
+        .member-card p {
+            margin: 5px 0;
+        }
+        
+     /* Footer */
+     .footer {
+      background-color: #0d101c;
+      color: #fff;
+      padding: 40px 20px;
+    }
+
+    .footer-container {
+      display: flex;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 40px;
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+
+    .footer-column {
+      flex: 1;
+      min-width: 250px;
+    }
+
+    .footer-column h3 {
+      font-size: 20px;
+      margin-bottom: 20px;
+      color: #ffffff;
+    }
+
+    .footer-column ul {
+      list-style: none;
+      padding: 0;
+    }
+
+    .footer-column ul li {
+      margin: 8px 0;
+    }
+
+    .footer-column ul li a,
+    .footer-column p,
+    .footer-column a {
+      color: #b58ebf;
+      text-decoration: none;
+    }
+
+    .footer-column a:hover {
+      text-decoration: underline;
+    }
+
+    .social-icons {
+      margin-top: 15px;
+    }
+
+    .social-icons a {
+      display: inline-block;
+      background-color: #fff;
+      color: #000;
+      width: 40px;
+      height: 40px;
+      line-height: 40px;
+      margin-right: 10px;
+      text-align: center;
+      border-radius: 50%;
+      font-size: 18px;
+      transition: transform 0.3s ease;
+    }
+
+    .social-icons a:hover {
+      transform: scale(1.1);
+    }
+
+    .footer-bottom {
+      margin-top: 20px;
+      font-size: 14px;
+      opacity: 0.8;
+     text-align: center; 
+    }
+    .footer-bottom a {
+      color: #b58ebf;
+      text-decoration: none;
+    }   
+
+     
+   
+    </style>
+</head>
+<body>
+    
+  <!-- Header Section -->
+   <header>
+    <nav class="navbar">
+      <div class="logo">
+        <img src="logo2.jpg" alt="Logo">
+        CODERS' CREED
+      </div>
+
+      <ul class="nav-links" id="navLinks">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="about.html">About</a></li>
+        <li><a href="club.html">Club</a></li>
+
+        <li class="dropdown">
+          <a href="#" id="resourcesLink">
+            Resources <span class="caret">▼</span>
+          </a>
+          <div class="dropdown-menu">
+            <a href="notes.html">Notes</a>
+            <a href="#questions">Questions</a>
+            <a href="#course-links">Course Links</a>
+            <a href="#useful-links">Useful Links</a>
+            <a href="#timetable">Timetable</a>
+          </div>
+        </li>
+
+        <li><a href="faculty.html">Faculty</a></li>
+        <li><a href="events.html">Events</a></li>
+        <li><a href="contact.html">Contact</a></li>
+      </ul>
+
+      <button class="hamburger" id="hamburger" aria-label="Menu" aria-expanded="false" aria-controls="navLinks">
+        <span></span><span></span><span></span>
+      </button>
+    </nav>
+  </header>
+    <section class="club-intro">
+        <h1>Welcome to CODERS' CREED </h1>
+        <p>Coders Creed is a passionate community of developers, security researchers, and tech enthusiasts dedicated to cybersecurity and innovation. We believe in learning, collaboration, and building a strong tech culture.</p>
+    </section>
+    <section class="club-members">
+        <h1>Meet the Coders Creed Club Members</h1>
+          <h2>technical group</h2>
+        <div class="members-grid">
+            <div class="member-card">
+                <img src="images/logo.jpg" alt="Member Image" class="member-img">
+                <h3>RISHI IJANTHKAR</h3>
+                <p>🎓 2nd Yr AIML</p>
+                <p>💼 Treasurer</p>
+                <p>📞 9538660480</p>
+            </div>
+            <div class="member-card">
+                <img src="https://via.placeholder.com/100" alt="Member Image" class="member-img">
+                <h3>PREM H</h3>
+                <p>🎓 3rd Yr AIML</p>
+                <p>💼 Coordinator</p>
+                <p>📞 8050642496</p>
+            </div>
+            <div class="member-card">
+                <img src="https://via.placeholder.com/100" alt="Member Image" class="member-img">
+                <h3>INCHARA N U</h3>
+                <p>🎓 2nd Yr AIML</p>
+                <p>💼 Coordinator</p>
+                <p>📞 7026990938</p>
+            </div>
+              <div class="member-card">
+                <img src="https://via.placeholder.com/100" alt="Member Image" class="member-img">
+                <h3>INCHARA N U</h3>
+                <p>🎓 2nd Yr AIML</p>
+                <p>💼 Coordinator</p>
+                <p>📞 7026990938</p>
+            </div>
+          <div class="member-card">
+                <img src="https://via.placeholder.com/100" alt="Member Image" class="member-img">
+                <h3>INCHARA N U</h3>
+                <p>🎓 2nd Yr AIML</p>
+                <p>💼 Coordinator</p>
+                <p>📞 7026990938</p>
+            </div>
+            <div class="member-card">
+                <img src="https://via.placeholder.com/100" alt="Member Image" class="member-img">
+                <h3>INCHARA N U</h3>
+                <p>🎓 2nd Yr AIML</p>
+                <p>💼 Coordinator</p>
+                <p>📞 7026990938</p>
+            </div>
+            <div class="member-card">
+                <img src="https://via.placeholder.com/100" alt="Member Image" class="member-img">
+                <h3>INCHARA N U</h3>
+                <p>🎓 2nd Yr AIML</p>
+                <p>💼 Coordinator</p>
+                <p>📞 7026990938</p>
+            </div>
+        </div>
+    </section>
+   <section class="club-members">
+        <h2>sports team </h2>
+        <div class="members-grid">
+            <div class="member-card">
+                <img src="https://via.placeholder.com/100" alt="Member Image" class="member-img">
+                <h3>RISHI IJANTHKAR</h3>
+                <p>🎓 2nd Yr AIML</p>
+                <p>💼 Treasurer</p>
+                <p>📞 9538660480</p>
+            </div>
+            <div class="member-card">
+                <img src="https://via.placeholder.com/100" alt="Member Image" class="member-img">
+                <h3>PREM H</h3>
+                <p>🎓 3rd Yr AIML</p>
+                <p>💼 Coordinator</p>
+                <p>📞 8050642496</p>
+            </div>
+            <div class="member-card">
+                <img src="https://via.placeholder.com/100" alt="Member Image" class="member-img">
+                <h3>INCHARA N U</h3>
+                <p>🎓 2nd Yr AIML</p>
+                <p>💼 Coordinator</p>
+                <p>📞 7026990938</p>
+            </div>
+              <div class="member-card">
+                <img src="https://via.placeholder.com/100" alt="Member Image" class="member-img">
+                <h3>INCHARA N U</h3>
+                <p>🎓 2nd Yr AIML</p>
+                <p>💼 Coordinator</p>
+                <p>📞 7026990938</p>
+            </div>
+          <div class="member-card">
+                <img src="https://via.placeholder.com/100" alt="Member Image" class="member-img">
+                <h3>INCHARA N U</h3>
+                <p>🎓 2nd Yr AIML</p>
+                <p>💼 Coordinator</p>
+                <p>📞 7026990938</p>
+            </div>
+        </div>
+    </section>
+ <!-- Footer -->
+  <footer class="footer">
+      <div class="footer-container">
+        <div class="footer-column">
+          <h3>Useful Links</h3>
+          <ul>
+            <li><a href="#">Home</a></li>
+            <li><a href="#">About us</a></li>
+            <li><a href="#">SSIT LINK</a></li>
+            <li><a href="#">DHL LINK</a></li>
+            <li><a href="#">Contact us</a></li>
+          </ul>
+        </div>
+  
+        <div class="footer-column">
+          <h3>About us</h3>
+        <p>I’m a passionate front-end developer dedicated to crafting responsive, accessible, and visually appealing web experiences. I believe great design and clean code go hand in hand to create websites that not only look good but also perform smoothly across all devices.</p>
+        </div>
+  
+        <div class="footer-column">
+          <h3>Connect with us</h3>
+          <p><i class="fas fa-comments"></i> <a href="#">Contact us</a></p>
+          <p><i class="fas fa-envelope"></i>rhethhtrtr@gmail.com</p>
+          <p><i class="fas fa-phone"></i>+91 xxxxxxx</p>
+          <div class="social-icons">
+            <a href="#"><i class="fas fa-home"></i></a>
+            <a href="#"><i class="fab fa-instagram"></i></a>
+            <a href="#" target="_blank"><i class="fa-brands fa-facebook"></i></a>
+            <a href="#" target="_blank"><i class="fa-brands fa-twitter"></i></a>
+          </div>
+        </div>
+      </div>
+    <p class="footer-bottom">&copy; 2025 Coders Creed | All Rights Reserved.</p>
+  </footer>
+<!-- ...existing code... -->
+  <script>
+    const hamburger = document.getElementById('hamburger');
+    const navLinks  = document.getElementById('navLinks');
+    const dropdownTrigger = document.getElementById('resourcesLink');
+    const dropdown = dropdownTrigger.closest('.dropdown');
+
+    // Toggle mobile menu
+    hamburger.addEventListener('click', () => {
+      const isOpen = navLinks.classList.toggle('active');
+      hamburger.classList.toggle('open', isOpen);
+      hamburger.setAttribute('aria-expanded', String(isOpen));
+      if (!isOpen) {
+        document.querySelectorAll('.dropdown.open').forEach(d => d.classList.remove('open'));
+      }
+    });
+
+    // Toggle dropdown on mobile (click to open/close)
+    dropdownTrigger.addEventListener('click', (e) => {
+      if (window.matchMedia('(max-width: 768px)').matches) {
+        e.preventDefault();
+        const parent = dropdownTrigger.closest('.dropdown');
+        const wasOpen = parent.classList.contains('open');
+        document.querySelectorAll('.nav-links .dropdown.open').forEach(d => {
+          if (d !== parent) d.classList.remove('open');
+        });
+        parent.classList.toggle('open', !wasOpen);
+      }
+    });
+
+    // DESKTOP: Toggle dropdown on click (not hover)
+    dropdownTrigger.addEventListener('click', (e) => {
+      if (window.matchMedia('(min-width: 769px)').matches) {
+        e.preventDefault();
+        const wasOpen = dropdown.classList.contains('open');
+        // Close all other dropdowns
+        document.querySelectorAll('.nav-links .dropdown.open').forEach(d => {
+          if (d !== dropdown) d.classList.remove('open');
+        });
+        dropdown.classList.toggle('open', !wasOpen);
+      }
+    });
+
+    // Close dropdown if you click anywhere else on desktop
+    document.addEventListener('click', (e) => {
+      if (window.matchMedia('(min-width: 769px)').matches) {
+        if (!dropdown.contains(e.target)) {
+          dropdown.classList.remove('open');
+        }
+      }
+      // Mobile: close dropdown if click outside
+      if (window.matchMedia('(max-width: 768px)').matches) {
+        const dropdown = document.querySelector('.dropdown');
+        const clickedInside = dropdown.contains(e.target) || e.target === dropdown;
+        if (!clickedInside) dropdown.classList.remove('open');
+      }
+    });
+
+    // Reset states on resize (avoid stuck states when switching between mobile/desktop)
+    window.addEventListener('resize', () => {
+      if (window.matchMedia('(min-width: 769px)').matches) {
+        navLinks.classList.remove('active');
+        hamburger.classList.remove('open');
+        hamburger.setAttribute('aria-expanded', 'false');
+        document.querySelectorAll('.dropdown.open').forEach(d => d.classList.remove('open'));
+      }
+    });
+  </script>
+</body>
+</html>
